@@ -1,34 +1,46 @@
-function scrollToGallery() {
-    document.getElementById("gallery").scrollIntoView({
-        behavior: "smooth"
+document.addEventListener("DOMContentLoaded", () => {
+
+    const loader = document.getElementById("loader");
+
+    if (loader) {
+        setTimeout(() => {
+            loader.style.display = "none";
+        }, 1500);
+    }
+
+    const images = document.querySelectorAll(".gallery-grid img");
+
+    images.forEach(img => {
+        img.addEventListener("click", () => {
+
+            const overlay = document.createElement("div");
+
+            overlay.style.position = "fixed";
+            overlay.style.top = "0";
+            overlay.style.left = "0";
+            overlay.style.width = "100%";
+            overlay.style.height = "100%";
+            overlay.style.background = "rgba(0,0,0,0.9)";
+            overlay.style.display = "flex";
+            overlay.style.justifyContent = "center";
+            overlay.style.alignItems = "center";
+            overlay.style.zIndex = "9999";
+
+            const image = document.createElement("img");
+
+            image.src = img.src;
+            image.style.maxWidth = "90%";
+            image.style.maxHeight = "90%";
+            image.style.borderRadius = "20px";
+
+            overlay.appendChild(image);
+
+            overlay.addEventListener("click", () => {
+                overlay.remove();
+            });
+
+            document.body.appendChild(overlay);
+        });
     });
-}
 
-const hearts = document.querySelector(".hearts");
-
-function createHeart() {
-    const heart = document.createElement("div");
-
-    heart.innerHTML = "💖";
-
-    heart.style.position = "fixed";
-    heart.style.left = Math.random() * 100 + "vw";
-    heart.style.top = "100vh";
-    heart.style.fontSize = (20 + Math.random() * 20) + "px";
-    heart.style.opacity = Math.random();
-    heart.style.pointerEvents = "none";
-    heart.style.transition = "transform 6s linear, opacity 6s linear";
-
-    hearts.appendChild(heart);
-
-    setTimeout(() => {
-        heart.style.transform = "translateY(-120vh)";
-        heart.style.opacity = "0";
-    }, 100);
-
-    setTimeout(() => {
-        heart.remove();
-    }, 6000);
-}
-
-setInterval(createHeart, 500);
+});
