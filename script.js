@@ -1,16 +1,9 @@
 document.addEventListener("DOMContentLoaded", () => {
 
-    const loader = document.getElementById("loader");
-
-    if (loader) {
-        setTimeout(() => {
-            loader.style.display = "none";
-        }, 1500);
-    }
-
-    const images = document.querySelectorAll(".gallery-grid img");
+    const images = document.querySelectorAll(".gallery img");
 
     images.forEach(img => {
+
         img.addEventListener("click", () => {
 
             const overlay = document.createElement("div");
@@ -26,21 +19,24 @@ document.addEventListener("DOMContentLoaded", () => {
             overlay.style.alignItems = "center";
             overlay.style.zIndex = "9999";
 
-            const image = document.createElement("img");
+            const bigImage = document.createElement("img");
 
-            image.src = img.src;
-            image.style.maxWidth = "90%";
-            image.style.maxHeight = "90%";
-            image.style.borderRadius = "20px";
+            bigImage.src = img.src;
+            bigImage.style.maxWidth = "90%";
+            bigImage.style.maxHeight = "90%";
+            bigImage.style.borderRadius = "20px";
+            bigImage.style.boxShadow = "0 0 30px white";
 
-            overlay.appendChild(image);
+            overlay.appendChild(bigImage);
 
             overlay.addEventListener("click", () => {
                 overlay.remove();
             });
 
             document.body.appendChild(overlay);
+
         });
+
     });
 
 });
