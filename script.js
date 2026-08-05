@@ -1,42 +1,62 @@
-document.addEventListener("DOMContentLoaded", function () {
+document.addEventListener("DOMContentLoaded", () => {
 
-    const images = document.querySelectorAll(".gallery img");
+const loader = document.getElementById("loader");
+const enterBtn = document.getElementById("enterBtn");
+const giftBox = document.getElementById("giftBox");
+const surprise = document.getElementById("surprise");
 
-    images.forEach(function (img) {
+enterBtn.addEventListener("click", () => {
+    loader.style.opacity = "0";
+    setTimeout(() => {
+        loader.style.display = "none";
+    },800);
+});
 
-        img.addEventListener("click", function () {
+giftBox.addEventListener("click", () => {
+    surprise.style.display = "block";
 
-            const overlay = document.createElement("div");
-
-            overlay.style.position = "fixed";
-            overlay.style.top = "0";
-            overlay.style.left = "0";
-            overlay.style.width = "100%";
-            overlay.style.height = "100%";
-            overlay.style.background = "rgba(0,0,0,0.9)";
-            overlay.style.display = "flex";
-            overlay.style.justifyContent = "center";
-            overlay.style.alignItems = "center";
-            overlay.style.zIndex = "9999";
-
-            const big = document.createElement("img");
-
-            big.src = this.src;
-            big.style.maxWidth = "90%";
-            big.style.maxHeight = "90%";
-            big.style.borderRadius = "20px";
-            big.style.boxShadow = "0 0 25px white";
-
-            overlay.appendChild(big);
-
-            overlay.addEventListener("click", function () {
-                document.body.removeChild(overlay);
-            });
-
-            document.body.appendChild(overlay);
-
-        });
-
+    surprise.scrollIntoView({
+        behavior:"smooth"
     });
+
+    giftBox.textContent="❤️";
+});
+
+const photos=document.querySelectorAll(".photo");
+
+photos.forEach(photo=>{
+
+photo.addEventListener("click",()=>{
+
+const overlay=document.createElement("div");
+
+overlay.style.position="fixed";
+overlay.style.top="0";
+overlay.style.left="0";
+overlay.style.width="100%";
+overlay.style.height="100%";
+overlay.style.background="rgba(0,0,0,.92)";
+overlay.style.display="flex";
+overlay.style.justifyContent="center";
+overlay.style.alignItems="center";
+overlay.style.zIndex="99999";
+
+const img=document.createElement("img");
+
+img.src=photo.src;
+img.style.maxWidth="90%";
+img.style.maxHeight="90%";
+img.style.borderRadius="20px";
+img.style.boxShadow="0 0 40px white";
+
+overlay.appendChild(img);
+
+overlay.onclick=()=>overlay.remove();
+
+document.body.appendChild(overlay);
+
+});
+
+});
 
 });
