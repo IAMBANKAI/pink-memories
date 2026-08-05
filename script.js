@@ -1,47 +1,42 @@
-document.addEventListener("DOMContentLoaded", () => {
-  const images = document.querySelectorAll(".gallery img");
+document.addEventListener("DOMContentLoaded", function () {
 
-  images.forEach(img => {
-    img.addEventListener("click", () => {
-      const overlay = document.createElement("div");
-      overlay.style.position = "fixed";
-      overlay.style.top = "0";
-      overlay.style.left = "0";
-      overlay.style.width = "100%";
-      overlay.style.height = "100%";
-      overlay.style.background = "rgba(0,0,0,0.92)";
-      overlay.style.display = "flex";
-      overlay.style.justifyContent = "center";
-      overlay.style.alignItems = "center";
-      overlay.style.zIndex = "9999";
-      overlay.style.cursor = "pointer";
-      overlay.style.padding = "20px";
+    const images = document.querySelectorAll(".gallery img");
 
-      const bigImage = document.createElement("img");
-      bigImage.src = img.src;
-      bigImage.alt = img.alt || "Memory";
-      bigImage.style.maxWidth = "90%";
-      bigImage.style.maxHeight = "90%";
-      bigImage.style.borderRadius = "16px";
-      bigImage.style.boxShadow = "0 0 40px rgba(255,255,255,0.25)";
-      bigImage.style.objectFit = "contain";
+    images.forEach(function (img) {
 
-      overlay.appendChild(bigImage);
-      document.body.appendChild(overlay);
-      document.body.style.overflow = "hidden";
+        img.addEventListener("click", function () {
 
-      const closeLightbox = () => {
-        overlay.remove();
-        document.body.style.overflow = "";
-        document.removeEventListener("keydown", handleEsc);
-      };
+            const overlay = document.createElement("div");
 
-      overlay.addEventListener("click", closeLightbox);
+            overlay.style.position = "fixed";
+            overlay.style.top = "0";
+            overlay.style.left = "0";
+            overlay.style.width = "100%";
+            overlay.style.height = "100%";
+            overlay.style.background = "rgba(0,0,0,0.9)";
+            overlay.style.display = "flex";
+            overlay.style.justifyContent = "center";
+            overlay.style.alignItems = "center";
+            overlay.style.zIndex = "9999";
 
-      const handleEsc = (e) => {
-        if (e.key === "Escape") closeLightbox();
-      };
-      document.addEventListener("keydown", handleEsc);
+            const big = document.createElement("img");
+
+            big.src = this.src;
+            big.style.maxWidth = "90%";
+            big.style.maxHeight = "90%";
+            big.style.borderRadius = "20px";
+            big.style.boxShadow = "0 0 25px white";
+
+            overlay.appendChild(big);
+
+            overlay.addEventListener("click", function () {
+                document.body.removeChild(overlay);
+            });
+
+            document.body.appendChild(overlay);
+
+        });
+
     });
-  });
+
 });
