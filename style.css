@@ -258,3 +258,21 @@ opacity:0;
 transform:scale(1.5);
 }
 }
+.giftOpen{
+animation:giftPop .8s ease;
+}
+
+@keyframes giftPop{
+0%{
+transform:scale(1) rotate(0deg);
+}
+30%{
+transform:scale(1.4) rotate(-15deg);
+}
+60%{
+transform:scale(.9) rotate(15deg);
+}
+100%{
+transform:scale(1);
+}
+}
