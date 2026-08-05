@@ -102,3 +102,23 @@ petal.remove();
 },10000);
 
 },700);
+setInterval(() => {
+
+const sparkle=document.createElement("div");
+
+sparkle.className="sparkle";
+
+sparkle.innerHTML="✨";
+
+sparkle.style.left=Math.random()*100+"vw";
+sparkle.style.top=Math.random()*100+"vh";
+
+sparkle.style.fontSize=(10+Math.random()*18)+"px";
+
+document.body.appendChild(sparkle);
+
+setTimeout(()=>{
+sparkle.remove();
+},2000);
+
+},400);
