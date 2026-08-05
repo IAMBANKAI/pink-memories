@@ -35,6 +35,27 @@ document.addEventListener("DOMContentLoaded", function () {
     giftBox.addEventListener("click", function () {
 
         giftBox.textContent = "❤️";
+        for(let i=0;i<120;i++){
+
+const confetti=document.createElement("div");
+
+confetti.className="confetti";
+
+confetti.innerHTML=["🎉","💖","🌸","💕"][Math.floor(Math.random()*4)];
+
+confetti.style.left=Math.random()*100+"vw";
+
+confetti.style.fontSize=(10+Math.random()*18)+"px";
+
+confetti.style.animationDuration=(2+Math.random()*3)+"s";
+
+document.body.appendChild(confetti);
+
+setTimeout(()=>{
+confetti.remove();
+},5000);
+
+}
 
         surprise.style.display = "block";
 
