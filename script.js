@@ -162,7 +162,7 @@ sparkle.style.top=Math.random()*100+"vh";
 
 sparkle.style.fontSize=(10+Math.random()*18)+"px";
 
-document.body.appendChild(sparkle);
+document.getElementById("petals").appendChild(sparkle);
 
 setTimeout(()=>{
 sparkle.remove();
