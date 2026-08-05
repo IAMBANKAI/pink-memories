@@ -276,3 +276,68 @@ transform:scale(.9) rotate(15deg);
 transform:scale(1);
 }
 }
+
+.hero h1{
+animation:heartbeat 2s infinite;
+}
+
+@keyframes heartbeat{
+
+0%{
+transform:scale(1);
+text-shadow:0 0 10px #ff99cc;
+}
+
+25%{
+transform:scale(1.05);
+text-shadow:0 0 25px #ff4d94;
+}
+
+50%{
+transform:scale(1);
+text-shadow:0 0 40px #ff66b3;
+}
+
+75%{
+transform:scale(1.05);
+text-shadow:0 0 25px #ff4d94;
+}
+
+100%{
+transform:scale(1);
+text-shadow:0 0 10px #ff99cc;
+}
+
+}
+.photo{
+opacity:0;
+transform:translateY(40px);
+animation:photoFade 1s forwards;
+}
+
+.photo:nth-child(1){animation-delay:.2s;}
+.photo:nth-child(2){animation-delay:.4s;}
+.photo:nth-child(3){animation-delay:.6s;}
+.photo:nth-child(4){animation-delay:.8s;}
+.photo:nth-child(5){animation-delay:1s;}
+.photo:nth-child(6){animation-delay:1.2s;}
+.photo:nth-child(7){animation-delay:1.4s;}
+.photo:nth-child(8){animation-delay:1.6s;}
+.photo:nth-child(9){animation-delay:1.8s;}
+.photo:nth-child(10){animation-delay:2s;}
+.photo:nth-child(11){animation-delay:2.2s;}
+.photo:nth-child(12){animation-delay:2.4s;}
+.photo:nth-child(13){animation-delay:2.6s;}
+.photo:nth-child(14){animation-delay:2.8s;}
+
+@keyframes photoFade{
+
+to{
+
+opacity:1;
+
+transform:translateY(0);
+
+}
+
+}
