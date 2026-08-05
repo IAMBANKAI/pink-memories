@@ -4,129 +4,51 @@ const loader = document.getElementById("loader");
 const enterBtn = document.getElementById("enterBtn");
 const giftBox = document.getElementById("giftBox");
 const surprise = document.getElementById("surprise");
+const musicBtn = document.getElementById("musicBtn");
+const birthdayMusic = document.getElementById("birthdayMusic");
 
 enterBtn.addEventListener("click", () => {
+
     loader.style.opacity = "0";
+
     setTimeout(() => {
         loader.style.display = "none";
     },800);
-});
-
-giftBox.addEventListener("click", () => {
-
-    giftBox.classList.add("giftOpen");
-
-    giftBox.textContent = "❤️";
-
-    surprise.style.display = "block";
-
-    surprise.scrollIntoView({
-        behavior: "smooth"
-    });
-
-    setTimeout(() => {
-        giftBox.classList.remove("giftOpen");
-    }, 800);
 
 });
 
-const photos=document.querySelectorAll(".photo");
+musicBtn.addEventListener("click", () => {
 
-photos.forEach(photo=>{
+    if(birthdayMusic.paused){
 
-photo.addEventListener("click",()=>{
+        birthdayMusic.play();
 
-const overlay=document.createElement("div");
+        musicBtn.innerHTML="⏸ Pause Our Song";
 
-overlay.style.position="fixed";
-overlay.style.top="0";
-overlay.style.left="0";
-overlay.style.width="100%";
-overlay.style.height="100%";
-overlay.style.background="rgba(0,0,0,.92)";
-overlay.style.display="flex";
-overlay.style.justifyContent="center";
-overlay.style.alignItems="center";
-overlay.style.zIndex="99999";
+    }else{
 
-const img=document.createElement("img");
+        birthdayMusic.pause();
 
-img.src=photo.src;
-img.style.maxWidth="90%";
-img.style.maxHeight="90%";
-img.style.borderRadius="20px";
-img.style.boxShadow="0 0 40px white";
+        musicBtn.innerHTML="🎵 Play Our Song";
 
-overlay.appendChild(img);
-
-overlay.onclick=()=>overlay.remove();
-
-document.body.appendChild(overlay);
+    }
 
 });
 
+giftBox.addEventListener("click",()=>{
+
+giftBox.classList.add("giftOpen");
+
+giftBox.innerHTML="❤️";
+
+surprise.style.display="block";
+
+surprise.scrollIntoView({
+behavior:"smooth"
 });
-
-});
-setInterval(() => {
-
-const heart=document.createElement("div");
-
-heart.className="heart";
-
-heart.innerHTML=["💖","💕","❤️","💗"][Math.floor(Math.random()*4)];
-
-heart.style.left=Math.random()*100+"vw";
-
-heart.style.animationDuration=(4+Math.random()*4)+"s";
-
-heart.style.fontSize=(18+Math.random()*25)+"px";
-
-document.body.appendChild(heart);
 
 setTimeout(()=>{
-heart.remove();
-},8000);
+giftBox.classList.remove("giftOpen");
+},800);
 
-},500);
-setInterval(() => {
-
-const petal=document.createElement("div");
-
-petal.className="petal";
-
-petal.innerHTML="🌸";
-
-petal.style.left=Math.random()*100+"vw";
-
-petal.style.fontSize=(16+Math.random()*18)+"px";
-
-petal.style.animationDuration=(5+Math.random()*5)+"s";
-
-document.body.appendChild(petal);
-
-setTimeout(()=>{
-petal.remove();
-},10000);
-
-},700);
-setInterval(() => {
-
-const sparkle=document.createElement("div");
-
-sparkle.className="sparkle";
-
-sparkle.innerHTML="✨";
-
-sparkle.style.left=Math.random()*100+"vw";
-sparkle.style.top=Math.random()*100+"vh";
-
-sparkle.style.fontSize=(10+Math.random()*18)+"px";
-
-document.body.appendChild(sparkle);
-
-setTimeout(()=>{
-sparkle.remove();
-},2000);
-
-},400);
+});
