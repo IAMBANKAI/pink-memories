@@ -1,54 +1,86 @@
-document.addEventListener("DOMContentLoaded", () => {
+document.addEventListener("DOMContentLoaded", function () {
 
-const loader = document.getElementById("loader");
-const enterBtn = document.getElementById("enterBtn");
-const giftBox = document.getElementById("giftBox");
-const surprise = document.getElementById("surprise");
-const musicBtn = document.getElementById("musicBtn");
-const birthdayMusic = document.getElementById("birthdayMusic");
+    const loader = document.getElementById("loader");
+    const enterBtn = document.getElementById("enterBtn");
+    const musicBtn = document.getElementById("musicBtn");
+    const birthdayMusic = document.getElementById("birthdayMusic");
+    const giftBox = document.getElementById("giftBox");
+    const surprise = document.getElementById("surprise");
 
-enterBtn.addEventListener("click", () => {
-
-    loader.style.opacity = "0";
-
-    setTimeout(() => {
+    // Open gift screen
+    enterBtn.addEventListener("click", function () {
         loader.style.display = "none";
-    },800);
+    });
 
-});
+    // Play / Pause music
+    musicBtn.addEventListener("click", function () {
 
-musicBtn.addEventListener("click", () => {
+        if (birthdayMusic.paused) {
 
-    if(birthdayMusic.paused){
+            birthdayMusic.play();
 
-        birthdayMusic.play();
+            musicBtn.textContent = "⏸ Pause Our Song";
 
-        musicBtn.innerHTML="⏸ Pause Our Song";
+        } else {
 
-    }else{
+            birthdayMusic.pause();
 
-        birthdayMusic.pause();
+            musicBtn.textContent = "🎵 Play Our Song";
 
-        musicBtn.innerHTML="🎵 Play Our Song";
+        }
 
-    }
+    });
 
-});
+    // Gift animation
+    giftBox.addEventListener("click", function () {
 
-giftBox.addEventListener("click",()=>{
+        giftBox.textContent = "❤️";
 
-giftBox.classList.add("giftOpen");
+        surprise.style.display = "block";
 
-giftBox.innerHTML="❤️";
+        surprise.scrollIntoView({
+            behavior: "smooth"
+        });
 
-surprise.style.display="block";
+    });
 
-surprise.scrollIntoView({
-behavior:"smooth"
-});
+    // Photo viewer
+    const photos = document.querySelectorAll(".photo");
 
-setTimeout(()=>{
-giftBox.classList.remove("giftOpen");
-},800);
+    photos.forEach(function(photo){
+
+        photo.addEventListener("click", function(){
+
+            const overlay = document.createElement("div");
+
+            overlay.style.position = "fixed";
+            overlay.style.top = "0";
+            overlay.style.left = "0";
+            overlay.style.width = "100%";
+            overlay.style.height = "100%";
+            overlay.style.background = "rgba(0,0,0,0.9)";
+            overlay.style.display = "flex";
+            overlay.style.justifyContent = "center";
+            overlay.style.alignItems = "center";
+            overlay.style.zIndex = "99999";
+
+            const img = document.createElement("img");
+
+            img.src = this.src;
+            img.style.maxWidth = "90%";
+            img.style.maxHeight = "90%";
+            img.style.borderRadius = "20px";
+
+            overlay.appendChild(img);
+
+            overlay.onclick = function(){
+                overlay.remove();
+            };
+
+            document.body.appendChild(overlay);
+
+        });
+
+    });
 
 });
