@@ -142,7 +142,7 @@ petal.style.fontSize=(16+Math.random()*18)+"px";
 
 petal.style.animationDuration=(5+Math.random()*5)+"s";
 
-document.body.appendChild(petal);
+document.getElementById("petals").appendChild(petal);
 
 setTimeout(()=>{
 petal.remove();
