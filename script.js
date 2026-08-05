@@ -13,13 +13,21 @@ enterBtn.addEventListener("click", () => {
 });
 
 giftBox.addEventListener("click", () => {
+
+    giftBox.classList.add("giftOpen");
+
+    giftBox.textContent = "❤️";
+
     surprise.style.display = "block";
 
     surprise.scrollIntoView({
-        behavior:"smooth"
+        behavior: "smooth"
     });
 
-    giftBox.textContent="❤️";
+    setTimeout(() => {
+        giftBox.classList.remove("giftOpen");
+    }, 800);
+
 });
 
 const photos=document.querySelectorAll(".photo");
