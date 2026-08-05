@@ -81,3 +81,24 @@ heart.remove();
 },8000);
 
 },500);
+setInterval(() => {
+
+const petal=document.createElement("div");
+
+petal.className="petal";
+
+petal.innerHTML="🌸";
+
+petal.style.left=Math.random()*100+"vw";
+
+petal.style.fontSize=(16+Math.random()*18)+"px";
+
+petal.style.animationDuration=(5+Math.random()*5)+"s";
+
+document.body.appendChild(petal);
+
+setTimeout(()=>{
+petal.remove();
+},10000);
+
+},700);
