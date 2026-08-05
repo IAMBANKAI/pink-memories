@@ -200,6 +200,26 @@ opacity:1;
 transform:translateY(0);
 }
 }
+.heart{
+position:fixed;
+bottom:-40px;
+font-size:24px;
+pointer-events:none;
+animation:floatHeart linear forwards;
+z-index:999;
+opacity:.8;
+}
+
+@keyframes floatHeart{
+0%{
+transform:translateY(0) rotate(0deg);
+opacity:1;
+}
+100%{
+transform:translateY(-120vh) rotate(360deg);
+opacity:0;
+}
+}
 .petal{
 position:fixed;
 top:-40px;
@@ -216,5 +236,25 @@ opacity:1;
 100%{
 transform:translateY(110vh) translateX(100px) rotate(360deg);
 opacity:0;
+}
+}
+.sparkle{
+position:fixed;
+pointer-events:none;
+animation:sparkleAnim 2s linear forwards;
+z-index:997;
+}
+
+@keyframes sparkleAnim{
+0%{
+opacity:0;
+transform:scale(.2);
+}
+20%{
+opacity:1;
+}
+100%{
+opacity:0;
+transform:scale(1.5);
 }
 }
