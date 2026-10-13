@@ -6,215 +6,276 @@
     <title>The Jasmine Files ❤️</title>
     <meta name="theme-color" content="#ffd6ea">
     <meta name="description" content="A birthday surprise made with love for Jasmine ❤️">
-    <link rel="stylesheet" href="style.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&family=Great+Vibes&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&family=Great+Vibes&display=swap" rel="stylesheet">
 </head>
 <body>
-    <!-- Opening screen -->
-    <div id="loader">
-        <h1>The Jasmine Files ❤️</h1>
-        <p>Made with all my love, just for Jasmine 💗</p>
-        <button id="enterBtn" type="button">
-            🎁 Open My Gift
+<!-- Opening screen -->
+<div id="loader">
+    <h1>The Jasmine Files ❤️</h1>
+    <p>Made with all my love, just for Jasmine 💗</p>
+    <button id="enterBtn" type="button">
+        🎁 Open My Gift
+    </button>
+</div>
+<!-- Floating decorations -->
+<div id="hearts" aria-hidden="true"></div>
+<div id="petals" aria-hidden="true"></div>
+<!-- Main birthday website -->
+<main id="mainContent">
+    <!-- Birthday introduction -->
+    <section class="hero">
+        <h1>Happy 17th Birthday</h1>
+        <h2>Jasmine ❤️</h2>
+        <p>
+            To my beautiful Princess, my favourite person,
+            and the girl who makes my world a little brighter.
+            Today is all about celebrating YOU. 💖
+        </p>
+        <button id="musicBtn" type="button">
+            🎵 Play Our Song
         </button>
-    </div>
-    <!-- Floating decorations -->
-    <div id="hearts" aria-hidden="true"></div>
-    <div id="petals" aria-hidden="true"></div>
-    <!-- Main birthday website -->
-    <main id="mainContent">
-        <!-- Birthday introduction -->
-        <section class="hero">
-            <h1>Happy 17th Birthday</h1>
-            <h2>Jasmine ❤️</h2>
-            <p>
-                To my beautiful Princess, my favourite person,
-                and the girl who makes my world a little brighter.
-                Today is all about celebrating YOU. 💖
-            </p>
-            <button id="musicBtn" type="button">
-                🎵 Play Our Song
-            </button>
-            <!-- Birthday song: repeats endlessly -->
-            <audio id="birthdayMusic" preload="auto" loop>
-                <source src="A_Thousand_Years-528635-mobiles24.mp3" type="audio/mpeg">
-                Your browser does not support audio playback.
-            </audio>
-            <a href="#gallery" class="scrollBtn">
-                Our Little Memories 💕
-            </a>
-        </section>
-        <!-- Photo and video gallery -->
-        <section id="gallery">
-            <h2>Our Little Memories 📸</h2>
-            <div class="gallery">
-                <img
-                    src="Screenshot_20261005_102603_Discord.jpeg"
-                    alt="A special memory of Jasmine"
-                    class="photo"
-                    loading="lazy"
-                >
-                <img
-                    src="44526fc8-3214-4282-b3d8-12df1c8f22c0.jpeg"
-                    alt="A beautiful memory"
-                    class="photo"
-                    loading="lazy"
-                >
-                <!-- Jasmine's video: muted so the song continues -->
-                <video
-                    controls
-                    autoplay
-                    muted
-                    loop
-                    class="photo gallery-video"
-                    preload="auto"
-                    playsinline
-                    webkit-playsinline
-                >
-                    <source src="2026-10-06-001649502.mp4" type="video/mp4">
-                    Your browser does not support video playback.
-                </video>
-                <img
-                    src="IMG_4117.jpeg"
-                    alt="A favourite memory"
-                    class="photo"
-                    loading="lazy"
-                >
-                <img
-                    src="IMG_4161.jpeg"
-                    alt="A special moment"
-                    class="photo"
-                    loading="lazy"
-                >
-                <img
-                    src="20250531_143235.jpeg"
-                    alt="A lovely memory"
-                    class="photo"
-                    loading="lazy"
-                >
-                <img
-                    src="53886e0f-5173-4c8d-b6db-6c52d7b56045.jpeg"
-                    alt="A cherished memory"
-                    class="photo"
-                    loading="lazy"
-                >
-                <img
-                    src="IMG_4338.jpeg"
-                    alt="A beautiful moment"
-                    class="photo"
-                    loading="lazy"
-                >
-                <img
-                    src="fb9dbb7d-e940-4835-8f8d-f29b51d2769c.jpeg"
-                    alt="A special photo"
-                    class="photo"
-                    loading="lazy"
-                >
-                <img
-                    src="IMG_4119.jpeg"
-                    alt="Another favourite memory"
-                    class="photo"
-                    loading="lazy"
-                >
-                <img
-                    src="IMG_4376.jpeg"
-                    alt="A happy memory"
-                    class="photo"
-                    loading="lazy"
-                >
-                <img
-                    src="IMG_4375.jpeg"
-                    alt="A lovely moment"
-                    class="photo"
-                    loading="lazy"
-                >
-                <img
-                    src="16ca500d-06b5-4bab-a3a6-8e76eb9be02c.jpeg"
-                    alt="A memory worth keeping"
-                    class="photo"
-                    loading="lazy"
-                >
-                <img
-                    src="8eb888fe-aa6e-4fc4-9c87-9affaa1edcca.jpeg"
-                    alt="One more special memory"
-                    class="photo"
-                    loading="lazy"
-                >
-            </div>
-        </section>
-        <!-- Birthday letter -->
-        <section id="letter">
-            <h2>A Little Letter for You 💌</h2>
-            <div class="letterBox">
-                <p id="typewriter">
-                    Happy 17th Birthday, Jasmine ❤️
-                    I made this website because you are someone very
-                    special to me.
-                    Every picture here reminds me of how amazing and
-                    beautiful you are.
-                    I hope your birthday is filled with happiness,
-                    laughter and beautiful memories.
-                    Thank you for being part of my life.
-                    No matter where life takes us, I'll always smile
-                    whenever I remember you.
-                    You deserve the world.
-                    Happy Birthday, my Princess.
-                    I love you. ❤️
-                </p>
-            </div>
-        </section>
-        <!-- Birthday gift -->
-        <section class="giftSection">
-            <h2>A Little Birthday Surprise 🎁</h2>
-            <p>
-                Princess, there's one more little surprise waiting for you. 💗
-            </p>
-            <div
-                id="giftBox"
-                role="button"
-                tabindex="0"
-                aria-label="Open your birthday surprise"
+        <!-- Background birthday song -->
+        <audio id="birthdayMusic" preload="auto" loop>
+            <source src="A_Thousand_Years-528635-mobiles24.mp3" type="audio/mpeg">
+            Your browser does not support audio playback.
+        </audio>
+        <a href="#gallery" class="scrollBtn">
+            Our Little Memories 💕
+        </a>
+    </section>
+    <!-- Photo and video gallery -->
+    <section id="gallery">
+        <h2>Our Little Memories 📸</h2>
+        <div class="gallery">
+            <!-- Original pictures -->
+            <img
+                src="Screenshot_20261005_102603_Discord.jpeg"
+                alt="A special memory of Jasmine"
+                class="photo"
+                loading="lazy"
             >
-                🎁
-            </div>
-            <p>Tap the gift to open it, my Princess! 💕</p>
-        </section>
-        <!-- Hidden birthday surprise -->
-        <section id="surprise">
-            <h1>🎉 Happy Birthday, Jasmine! 🎉</h1>
-            <p>
-                May your new year bring you endless happiness,
-                beautiful memories, success, and all the love
-                your heart can hold. ❤️
+            <img
+                src="44526fc8-3214-4282-b3d8-12df1c8f22c0.jpeg"
+                alt="A beautiful memory"
+                class="photo"
+                loading="lazy"
+            >
+            <!-- Original video: autoplay, muted and looping -->
+            <video
+                controls
+                autoplay
+                muted
+                loop
+                class="photo gallery-video"
+                preload="auto"
+                playsinline
+                webkit-playsinline
+            >
+                <source src="2026-10-06-001649502.mp4" type="video/mp4">
+                Your browser does not support video playback.
+            </video>
+            <img
+                src="IMG_4117.jpeg"
+                alt="A favourite memory"
+                class="photo"
+                loading="lazy"
+            >
+            <img
+                src="IMG_4161.jpeg"
+                alt="A special moment"
+                class="photo"
+                loading="lazy"
+            >
+            <img
+                src="20250531_143235.jpeg"
+                alt="A lovely memory"
+                class="photo"
+                loading="lazy"
+            >
+            <img
+                src="53886e0f-5173-4c8d-b6db-6c52d7b56045.jpeg"
+                alt="A cherished memory"
+                class="photo"
+                loading="lazy"
+            >
+            <img
+                src="IMG_4338.jpeg"
+                alt="A beautiful moment"
+                class="photo"
+                loading="lazy"
+            >
+            <img
+                src="fb9dbb7d-e940-4835-8f8d-f29b51d2769c.jpeg"
+                alt="A special photo"
+                class="photo"
+                loading="lazy"
+            >
+            <img
+                src="IMG_4119.jpeg"
+                alt="Another favourite memory"
+                class="photo"
+                loading="lazy"
+            >
+            <img
+                src="IMG_4376.jpeg"
+                alt="A happy memory"
+                class="photo"
+                loading="lazy"
+            >
+            <img
+                src="IMG_4375.jpeg"
+                alt="A lovely moment"
+                class="photo"
+                loading="lazy"
+            >
+            <img
+                src="16ca500d-06b5-4bab-a3a6-8e76eb9be02c.jpeg"
+                alt="A memory worth keeping"
+                class="photo"
+                loading="lazy"
+            >
+            <img
+                src="8eb888fe-aa6e-4fc4-9c87-9affaa1edcca.jpeg"
+                alt="One more special memory"
+                class="photo"
+                loading="lazy"
+            >
+            <!-- New picture 1 -->
+            <img
+                src="Screenshot_20260918_214126_Roblox.jpeg"
+                alt="Another Roblox memory together"
+                class="photo"
+                loading="lazy"
+            >
+            <!-- New picture 2 -->
+            <img
+                src="Screenshot_20260929_092442_Roblox.jpeg"
+                alt="A special Roblox memory"
+                class="photo"
+                loading="lazy"
+            >
+            <!-- New video: autoplay, muted and looping -->
+            <video
+                controls
+                autoplay
+                muted
+                loop
+                class="photo gallery-video"
+                preload="auto"
+                playsinline
+                webkit-playsinline
+            >
+                <source src="4fccdabf-25b0-43c9-93a6-ce8317a8e6d6.mp4" type="video/mp4">
+                Your browser does not support video playback.
+            </video>
+            <!-- New picture 3 -->
+            <img
+                src="361a5445-66cf-4a05-986d-56fc42635265.jpeg"
+                alt="A lovely memory"
+                class="photo"
+                loading="lazy"
+            >
+            <!-- New picture 4 -->
+            <img
+                src="Screenshot_20260912_193127_Roblox.jpeg"
+                alt="Another favourite Roblox memory"
+                class="photo"
+                loading="lazy"
+            >
+            <!-- New picture 5 -->
+            <img
+                src="image1_1.jpeg"
+                alt="One more beautiful memory"
+                class="photo"
+                loading="lazy"
+            >
+        </div>
+    </section>
+    <!-- Birthday letter -->
+    <section id="letter">
+        <h2>A Little Letter for You 💌</h2>
+        <div class="letterBox">
+            <p id="typewriter">
+                Happy 17th Birthday, Jasmine ❤️
+                I made this website because you are someone very
+                special to me.
+                Every picture here reminds me of how amazing and
+                beautiful you are.
+                I hope your birthday is filled with happiness,
+                laughter and beautiful memories.
+                Thank you for being part of my life.
+                No matter where life takes us, I'll always smile
+                whenever I remember you.
+                You deserve the world.
+                Happy Birthday, my Princess.
+                I love you. ❤️
             </p>
-            <p>
-                No matter how many birthdays come and go,
-                I hope you always remember how special you are to me. 💖
-            </p>
-            <h2>Forever my Princess ❤️</h2>
-        </section>
-    </main>
-    <!-- Footer -->
-    <footer>
-        <p>Made with all my love ❤️ — Chris</p>
-        <p>Happy 17th Birthday, Princess 💗</p>
-    </footer>
-    <script src="script.js"></script>
-    <!-- Ensure the birthday video stays muted -->
-    <script>
-        document.addEventListener("DOMContentLoaded", function () {
-            const video = document.querySelector(".gallery-video");
-            if (video) {
+        </div>
+    </section>
+    <!-- Birthday gift -->
+    <section class="giftSection">
+        <h2>A Little Birthday Surprise 🎁</h2>
+        <p>
+            Princess, there's one more little surprise waiting for you. 💗
+        </p>
+        <div
+            id="giftBox"
+            role="button"
+            tabindex="0"
+            aria-label="Open your birthday surprise"
+        >
+            🎁
+        </div>
+        <p>Tap the gift to open it, my Princess! 💕</p>
+    </section>
+    <!-- Hidden birthday surprise -->
+    <section id="surprise">
+        <h1>🎉 Happy Birthday, Jasmine! 🎉</h1>
+        <p>
+            May your new year bring you endless happiness,
+            beautiful memories, success, and all the love
+            your heart can hold. ❤️
+        </p>
+        <p>
+            No matter how many birthdays come and go,
+            I hope you always remember how special you are to me. 💖
+        </p>
+        <h2>Forever my Princess ❤️</h2>
+    </section>
+</main>
+<!-- Footer -->
+<footer>
+    <p>Made with all my love ❤️ — Chris</p>
+    <p>Happy 17th Birthday, Princess 💗</p>
+</footer>
+<!-- Existing website functionality -->
+<script src="script.js"></script>
+<!-- Keep both videos muted, inline and looping -->
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        const videos = document.querySelectorAll(".gallery-video");
+        videos.forEach(function (video) {
+            video.muted = true;
+            video.defaultMuted = true;
+            video.loop = true;
+            video.playsInline = true;
+            video.setAttribute("muted", "");
+            video.setAttribute("playsinline", "");
+            video.setAttribute("webkit-playsinline", "");
+            video.setAttribute("loop", "");
+            // Request autoplay for both videos.
+            const attemptPlay = function () {
                 video.muted = true;
-                video.defaultMuted = true;
-                video.loop = true;
-                video.playsInline = true;
-                video.setAttribute("muted", "");
-                video.setAttribute("playsinline", "");
-            }
+                video.play().catch(function (error) {
+                    console.log("Video autoplay may be restricted by the browser.", error);
+                });
+            };
+            attemptPlay();
         });
-    </script>
+    });
+</script>
 </body>
 </html>
