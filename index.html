@@ -23,6 +23,7 @@
     <!-- Floating decorations -->
     <div id="hearts" aria-hidden="true"></div>
     <div id="petals" aria-hidden="true"></div>
+    <!-- Main birthday website -->
     <main id="mainContent">
         <!-- Birthday introduction -->
         <section class="hero">
@@ -36,7 +37,8 @@
             <button id="musicBtn" type="button">
                 🎵 Play Our Song
             </button>
-            <audio id="birthdayMusic" preload="none">
+            <!-- Birthday song: repeats endlessly -->
+            <audio id="birthdayMusic" preload="auto" loop>
                 <source src="A_Thousand_Years-528635-mobiles24.mp3" type="audio/mpeg">
                 Your browser does not support audio playback.
             </audio>
@@ -60,7 +62,7 @@
                     class="photo"
                     loading="lazy"
                 >
-                <!-- Jasmine's video -->
+                <!-- Jasmine's video: muted so the song continues -->
                 <video
                     controls
                     autoplay
@@ -69,6 +71,7 @@
                     class="photo gallery-video"
                     preload="auto"
                     playsinline
+                    webkit-playsinline
                 >
                     <source src="2026-10-06-001649502.mp4" type="video/mp4">
                     Your browser does not support video playback.
@@ -199,5 +202,19 @@
         <p>Happy 17th Birthday, Princess 💗</p>
     </footer>
     <script src="script.js"></script>
+    <!-- Ensure the birthday video stays muted -->
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const video = document.querySelector(".gallery-video");
+            if (video) {
+                video.muted = true;
+                video.defaultMuted = true;
+                video.loop = true;
+                video.playsInline = true;
+                video.setAttribute("muted", "");
+                video.setAttribute("playsinline", "");
+            }
+        });
+    </script>
 </body>
 </html>
