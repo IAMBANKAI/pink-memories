@@ -8,6 +8,10 @@ document.addEventListener("DOMContentLoaded", function () {
     const hearts = document.getElementById("hearts");
     const petals = document.getElementById("petals");
     const birthdayVideo = document.querySelector(".gallery-video");
+    // Make the birthday song repeat endlessly ❤️
+    if (birthdayMusic) {
+        birthdayMusic.loop = true;
+    }
     // Keep Jasmine's video muted so it doesn't interrupt the song
     if (birthdayVideo) {
         birthdayVideo.muted = true;
@@ -25,24 +29,33 @@ document.addEventListener("DOMContentLoaded", function () {
         try {
             await birthdayVideo.play();
         } catch (error) {
-            console.log(
-                "The browser requires interaction before playing the video.",
-                error
-            );
+            console.log("Video autoplay requires browser permission or interaction.", error);
         }
     }
     playBirthdayVideo();
-    // Open the gift screen
+    // Open My Gift: reveal the website and start the song ❤️
     if (enterBtn) {
-        enterBtn.addEventListener("click", function () {
+        enterBtn.addEventListener("click", async function () {
             if (loader) {
                 loader.style.display = "none";
             }
-            // Try again after the visitor taps to enter
+            // Start A Thousand Years when she opens her gift
+            if (birthdayMusic) {
+                birthdayMusic.loop = true;
+                try {
+                    await birthdayMusic.play();
+                    if (musicBtn) {
+                        musicBtn.textContent = "⏸ Pause Our Song";
+                    }
+                } catch (error) {
+                    console.error("The birthday song could not play:", error);
+                }
+            }
+            // Try to play the video silently
             playBirthdayVideo();
         });
     }
-    // Play / Pause the background song
+    // Optional music button on the main birthday page
     if (musicBtn && birthdayMusic) {
         musicBtn.addEventListener("click", async function () {
             if (birthdayMusic.paused) {
@@ -65,13 +78,10 @@ document.addEventListener("DOMContentLoaded", function () {
         birthdayMusic.addEventListener("pause", function () {
             musicBtn.textContent = "🎵 Play Our Song";
         });
-        birthdayMusic.addEventListener("ended", function () {
-            musicBtn.textContent = "🎵 Play Our Song";
-        });
     }
-    // Birthday gift and confetti
+    // Birthday gift and confetti 🎁
     if (giftBox) {
-        giftBox.addEventListener("click", function () {
+        function openBirthdayGift() {
             if (giftBox.dataset.opened === "true") {
                 return;
             }
@@ -104,9 +114,17 @@ document.addEventListener("DOMContentLoaded", function () {
                     block: "center"
                 });
             }
+        }
+        giftBox.addEventListener("click", openBirthdayGift);
+        // Also allow the gift to be opened using a keyboard
+        giftBox.addEventListener("keydown", function (event) {
+            if (event.key === "Enter" || event.key === " ") {
+                event.preventDefault();
+                openBirthdayGift();
+            }
         });
     }
-    // Photo viewer — images only
+    // Photo viewer — images only 📸
     const photos = document.querySelectorAll(".gallery img.photo");
     photos.forEach(function (photo) {
         photo.addEventListener("click", function () {
