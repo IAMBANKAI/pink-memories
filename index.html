@@ -10,9 +10,190 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&family=Great+Vibes&display=swap" rel="stylesheet">
+<!-- Countdown screen styling -->
+<style>
+    #birthdayCountdown {
+        position: fixed;
+        inset: 0;
+        z-index: 999999;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        box-sizing: border-box;
+        overflow-y: auto;
+        padding: 24px 16px;
+        background:
+            radial-gradient(ellipse at top, rgba(255,255,255,0.85), transparent 60%),
+            linear-gradient(145deg, #fff0f6, #ffd6e8 48%, #f8c3df);
+        font-family: 'Poppins', sans-serif;
+        color: #87365e;
+        text-align: center;
+    }
+    #birthdayCountdown.hidden {
+        display: none;
+    }
+    #birthdayCountdown .countdown-card {
+        width: 100%;
+        max-width: 480px;
+        box-sizing: border-box;
+        padding: 32px 22px;
+        border: 1px solid rgba(255,255,255,0.85);
+        border-radius: 28px;
+        background: rgba(255,255,255,0.76);
+        box-shadow: 0 15px 55px rgba(156, 61, 109, 0.16);
+        animation: countdownFloat 3s ease-in-out infinite;
+    }
+    #birthdayCountdown .countdown-heart {
+        margin-bottom: 8px;
+        font-size: 46px;
+        animation: countdownHeartbeat 1.8s ease-in-out infinite;
+    }
+    #birthdayCountdown .countdown-eyebrow {
+        margin: 0 0 10px;
+        font-size: 11px;
+        font-weight: 700;
+        letter-spacing: 3px;
+        text-transform: uppercase;
+        color: #b65b88;
+    }
+    #birthdayCountdown h1 {
+        margin: 0 0 12px;
+        font-family: 'Great Vibes', cursive;
+        font-size: clamp(40px, 10vw, 60px);
+        line-height: 1.15;
+        color: #b63d79;
+        font-weight: 400;
+    }
+    #birthdayCountdown .countdown-message {
+        max-width: 340px;
+        margin: 0 auto 20px;
+        font-size: 14px;
+        line-height: 1.9;
+    }
+    #birthdayCountdown .countdown-date {
+        margin: 0 0 20px;
+        font-size: 12px;
+        font-weight: 700;
+        letter-spacing: 1px;
+        color: #a14c76;
+    }
+    #birthdayCountdown .countdown-grid {
+        display: grid;
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+        gap: 9px;
+        margin: 0 auto 22px;
+    }
+    #birthdayCountdown .countdown-unit {
+        min-width: 0;
+        padding: 14px 3px;
+        border: 1px solid #f5c4dc;
+        border-radius: 15px;
+        background: linear-gradient(180deg, #fff8fc, #ffe7f2);
+    }
+    #birthdayCountdown .countdown-number {
+        display: block;
+        font-size: clamp(23px, 6vw, 31px);
+        font-weight: 700;
+        line-height: 1.3;
+        color: #b63d79;
+        font-variant-numeric: tabular-nums;
+    }
+    #birthdayCountdown .countdown-label {
+        display: block;
+        margin-top: 5px;
+        font-size: 9px;
+        letter-spacing: 1px;
+        text-transform: uppercase;
+        color: #a15a7b;
+    }
+    #birthdayCountdown .countdown-note {
+        margin: 0;
+        font-size: 12px;
+        line-height: 1.8;
+        color: #a15a7b;
+    }
+    #birthdayCountdown .countdown-decoration {
+        margin-top: 20px;
+        font-size: 19px;
+        letter-spacing: 8px;
+    }
+    @keyframes countdownFloat {
+        0%, 100% { transform: translateY(0); }
+        50% { transform: translateY(-5px); }
+    }
+    @keyframes countdownHeartbeat {
+        0%, 100% { transform: scale(1); }
+        15% { transform: scale(1.12); }
+        30% { transform: scale(1); }
+        45% { transform: scale(1.08); }
+    }
+    @media (max-width: 360px) {
+        #birthdayCountdown .countdown-card {
+            padding: 26px 14px;
+        }
+        #birthdayCountdown .countdown-grid {
+            gap: 5px;
+        }
+        #birthdayCountdown .countdown-unit {
+            padding: 12px 2px;
+        }
+        #birthdayCountdown .countdown-label {
+            font-size: 8px;
+            letter-spacing: 0;
+        }
+    }
+    @media (prefers-reduced-motion: reduce) {
+        #birthdayCountdown .countdown-card,
+        #birthdayCountdown .countdown-heart {
+            animation: none;
+        }
+    }
+</style>
 </head>
 <body>
-<!-- Opening screen -->
+<!-- Birthday countdown gate -->
+<div id="birthdayCountdown">
+    <div class="countdown-card">
+        <div class="countdown-heart" aria-hidden="true">💗</div>
+    <p class="countdown-eyebrow">A little surprise for you</p>
+    <h1>One Last Surprise</h1>
+    <p class="countdown-message">
+        To my beautiful Jasmine,<br>
+        something made with all my love is waiting for you.
+        Every second brings us closer to your special day. ❤️
+    </p>
+    <p class="countdown-date">
+        NOVEMBER 4, 2026 · 12:00 AM<br>
+        NEW ZEALAND TIME 🇳🇿
+    </p>
+    <div class="countdown-grid" role="timer" aria-label="Time until your birthday surprise">
+        <div class="countdown-unit">
+            <span class="countdown-number" id="cdDays">00</span>
+            <span class="countdown-label">Days</span>
+        </div>
+        <div class="countdown-unit">
+            <span class="countdown-number" id="cdHours">00</span>
+            <span class="countdown-label">Hours</span>
+        </div>
+        <div class="countdown-unit">
+            <span class="countdown-number" id="cdMinutes">00</span>
+            <span class="countdown-label">Minutes</span>
+        </div>
+        <div class="countdown-unit">
+            <span class="countdown-number" id="cdSeconds">00</span>
+            <span class="countdown-label">Seconds</span>
+        </div>
+    </div>
+    <p class="countdown-note">
+        Until then, my Princess… 💌<br>
+        remember that someone is always thinking of you.
+    </p>
+    <div class="countdown-decoration" aria-hidden="true">
+        ♡ ✨ ♡
+    </div>
+</div>
+</div>
+<!-- Opening screen: original -->
 <div id="loader">
     <h1>The Jasmine Files ❤️</h1>
     <p>Made with all my love, just for Jasmine 💗</p>
@@ -20,240 +201,240 @@
         🎁 Open My Gift
     </button>
 </div>
-<!-- Floating decorations -->
+<!-- Floating decorations: original -->
 <div id="hearts" aria-hidden="true"></div>
 <div id="petals" aria-hidden="true"></div>
-<!-- Main birthday website -->
+<!-- Main birthday website: original -->
 <main id="mainContent">
-    <!-- Birthday introduction -->
-    <section class="hero">
-        <h1>Happy 17th Birthday</h1>
-        <h2>Jasmine ❤️</h2>
-        <p>
-            To my beautiful Princess, my favourite person,
-            and the girl who makes my world a little brighter.
-            Today is all about celebrating YOU. 💖
-        </p>
-        <button id="musicBtn" type="button">
-            🎵 Play Our Song
-        </button>
-        <!-- Background birthday song -->
-        <audio id="birthdayMusic" preload="auto" loop>
-            <source src="A_Thousand_Years-528635-mobiles24.mp3" type="audio/mpeg">
-            Your browser does not support audio playback.
-        </audio>
-        <a href="#gallery" class="scrollBtn">
-            Our Little Memories 💕
-        </a>
-    </section>
-    <!-- Photo and video gallery -->
-    <section id="gallery">
-        <h2>Our Little Memories 📸</h2>
-        <div class="gallery">
-            <!-- Original pictures -->
-            <img
-                src="Screenshot_20261005_102603_Discord.jpeg"
-                alt="A special memory of Jasmine"
-                class="photo"
-                loading="lazy"
-            >
-            <img
-                src="44526fc8-3214-4282-b3d8-12df1c8f22c0.jpeg"
-                alt="A beautiful memory"
-                class="photo"
-                loading="lazy"
-            >
-            <!-- Original video: autoplay, muted and looping -->
-            <video
-                controls
-                autoplay
-                muted
-                loop
-                class="photo gallery-video"
-                preload="auto"
-                playsinline
-                webkit-playsinline
-            >
-                <source src="2026-10-06-001649502.mp4" type="video/mp4">
-                Your browser does not support video playback.
-            </video>
-            <img
-                src="IMG_4117.jpeg"
-                alt="A favourite memory"
-                class="photo"
-                loading="lazy"
-            >
-            <img
-                src="IMG_4161.jpeg"
-                alt="A special moment"
-                class="photo"
-                loading="lazy"
-            >
-            <img
-                src="20250531_143235.jpeg"
-                alt="A lovely memory"
-                class="photo"
-                loading="lazy"
-            >
-            <img
-                src="53886e0f-5173-4c8d-b6db-6c52d7b56045.jpeg"
-                alt="A cherished memory"
-                class="photo"
-                loading="lazy"
-            >
-            <img
-                src="IMG_4338.jpeg"
-                alt="A beautiful moment"
-                class="photo"
-                loading="lazy"
-            >
-            <img
-                src="fb9dbb7d-e940-4835-8f8d-f29b51d2769c.jpeg"
-                alt="A special photo"
-                class="photo"
-                loading="lazy"
-            >
-            <img
-                src="IMG_4119.jpeg"
-                alt="Another favourite memory"
-                class="photo"
-                loading="lazy"
-            >
-            <img
-                src="IMG_4376.jpeg"
-                alt="A happy memory"
-                class="photo"
-                loading="lazy"
-            >
-            <img
-                src="IMG_4375.jpeg"
-                alt="A lovely moment"
-                class="photo"
-                loading="lazy"
-            >
-            <img
-                src="16ca500d-06b5-4bab-a3a6-8e76eb9be02c.jpeg"
-                alt="A memory worth keeping"
-                class="photo"
-                loading="lazy"
-            >
-            <img
-                src="8eb888fe-aa6e-4fc4-9c87-9affaa1edcca.jpeg"
-                alt="One more special memory"
-                class="photo"
-                loading="lazy"
-            >
-            <!-- New picture 1 -->
-            <img
-                src="Screenshot_20260918_214126_Roblox.jpeg"
-                alt="Another Roblox memory together"
-                class="photo"
-                loading="lazy"
-            >
-            <!-- New picture 2 -->
-            <img
-                src="Screenshot_20260929_092442_Roblox.jpeg"
-                alt="A special Roblox memory"
-                class="photo"
-                loading="lazy"
-            >
-            <!-- New video: autoplay, muted and looping -->
-            <video
-                controls
-                autoplay
-                muted
-                loop
-                class="photo gallery-video"
-                preload="auto"
-                playsinline
-                webkit-playsinline
-            >
-                <source src="4fccdabf-25b0-43c9-93a6-ce8317a8e6d6.mp4" type="video/mp4">
-                Your browser does not support video playback.
-            </video>
-            <!-- New picture 3 -->
-            <img
-                src="361a5445-66cf-4a05-986d-56fc42635265.jpeg"
-                alt="A lovely memory"
-                class="photo"
-                loading="lazy"
-            >
-            <!-- New picture 4 -->
-            <img
-                src="Screenshot_20260912_193127_Roblox.jpeg"
-                alt="Another favourite Roblox memory"
-                class="photo"
-                loading="lazy"
-            >
-            <!-- New picture 5 -->
-            <img
-                src="image1_1.jpeg"
-                alt="One more beautiful memory"
-                class="photo"
-                loading="lazy"
-            >
-        </div>
-    </section>
-    <!-- Birthday letter -->
-    <section id="letter">
-        <h2>A Little Letter for You 💌</h2>
-        <div class="letterBox">
-            <p id="typewriter">
-                Happy 17th Birthday, Jasmine ❤️
-                I made this website because you are someone very
-                special to me.
-                Every picture here reminds me of how amazing and
-                beautiful you are.
-                I hope your birthday is filled with happiness,
-                laughter and beautiful memories.
-                Thank you for being part of my life.
-                No matter where life takes us, I'll always smile
-                whenever I remember you.
-                You deserve the world.
-                Happy Birthday, my Princess.
-                I love you. ❤️
-            </p>
-        </div>
-    </section>
-    <!-- Birthday gift -->
-    <section class="giftSection">
-        <h2>A Little Birthday Surprise 🎁</h2>
-        <p>
-            Princess, there's one more little surprise waiting for you. 💗
-        </p>
-        <div
-            id="giftBox"
-            role="button"
-            tabindex="0"
-            aria-label="Open your birthday surprise"
+<!-- Birthday introduction -->
+<section class="hero">
+    <h1>Happy 17th Birthday</h1>
+    <h2>Jasmine ❤️</h2>
+    <p>
+        To my beautiful Princess, my favourite person,
+        and the girl who makes my world a little brighter.
+        Today is all about celebrating YOU. 💖
+    </p>
+    <button id="musicBtn" type="button">
+        🎵 Play Our Song
+    </button>
+    <!-- Background birthday song -->
+    <audio id="birthdayMusic" preload="auto" loop>
+        <source src="A_Thousand_Years-528635-mobiles24.mp3" type="audio/mpeg">
+        Your browser does not support audio playback.
+    </audio>
+    <a href="#gallery" class="scrollBtn">
+        Our Little Memories 💕
+    </a>
+</section>
+<!-- Photo and video gallery: all original items preserved -->
+<section id="gallery">
+    <h2>Our Little Memories 📸</h2>
+    <div class="gallery">
+        <!-- Original pictures -->
+        <img
+            src="Screenshot_20261005_102603_Discord.jpeg"
+            alt="A special memory of Jasmine"
+            class="photo"
+            loading="lazy"
         >
-            🎁
-        </div>
-        <p>Tap the gift to open it, my Princess! 💕</p>
-    </section>
-    <!-- Hidden birthday surprise -->
-    <section id="surprise">
-        <h1>🎉 Happy Birthday, Jasmine! 🎉</h1>
-        <p>
-            May your new year bring you endless happiness,
-            beautiful memories, success, and all the love
-            your heart can hold. ❤️
+        <img
+            src="44526fc8-3214-4282-b3d8-12df1c8f22c0.jpeg"
+            alt="A beautiful memory"
+            class="photo"
+            loading="lazy"
+        >
+        <!-- Original video -->
+        <video
+            controls
+            autoplay
+            muted
+            loop
+            class="photo gallery-video"
+            preload="auto"
+            playsinline
+            webkit-playsinline
+        >
+            <source src="2026-10-06-001649502.mp4" type="video/mp4">
+            Your browser does not support video playback.
+        </video>
+        <img
+            src="IMG_4117.jpeg"
+            alt="A favourite memory"
+            class="photo"
+            loading="lazy"
+        >
+        <img
+            src="IMG_4161.jpeg"
+            alt="A special moment"
+            class="photo"
+            loading="lazy"
+        >
+        <img
+            src="20250531_143235.jpeg"
+            alt="A lovely memory"
+            class="photo"
+            loading="lazy"
+        >
+        <img
+            src="53886e0f-5173-4c8d-b6db-6c52d7b56045.jpeg"
+            alt="A cherished memory"
+            class="photo"
+            loading="lazy"
+        >
+        <img
+            src="IMG_4338.jpeg"
+            alt="A beautiful moment"
+            class="photo"
+            loading="lazy"
+        >
+        <img
+            src="fb9dbb7d-e940-4835-8f8d-f29b51d2769c.jpeg"
+            alt="A special photo"
+            class="photo"
+            loading="lazy"
+        >
+        <img
+            src="IMG_4119.jpeg"
+            alt="Another favourite memory"
+            class="photo"
+            loading="lazy"
+        >
+        <img
+            src="IMG_4376.jpeg"
+            alt="A happy memory"
+            class="photo"
+            loading="lazy"
+        >
+        <img
+            src="IMG_4375.jpeg"
+            alt="A lovely moment"
+            class="photo"
+            loading="lazy"
+        >
+        <img
+            src="16ca500d-06b5-4bab-a3a6-8e76eb9be02c.jpeg"
+            alt="A memory worth keeping"
+            class="photo"
+            loading="lazy"
+        >
+        <img
+            src="8eb888fe-aa6e-4fc4-9c87-9affaa1edcca.jpeg"
+            alt="One more special memory"
+            class="photo"
+            loading="lazy"
+        >
+        <!-- New picture 1 -->
+        <img
+            src="Screenshot_20260918_214126_Roblox.jpeg"
+            alt="Another Roblox memory together"
+            class="photo"
+            loading="lazy"
+        >
+        <!-- New picture 2 -->
+        <img
+            src="Screenshot_20260929_092442_Roblox.jpeg"
+            alt="A special Roblox memory"
+            class="photo"
+            loading="lazy"
+        >
+        <!-- New video -->
+        <video
+            controls
+            autoplay
+            muted
+            loop
+            class="photo gallery-video"
+            preload="auto"
+            playsinline
+            webkit-playsinline
+        >
+            <source src="4fccdabf-25b0-43c9-93a6-ce8317a8e6d6.mp4" type="video/mp4">
+            Your browser does not support video playback.
+        </video>
+        <!-- New picture 3 -->
+        <img
+            src="361a5445-66cf-4a05-986d-56fc42635265.jpeg"
+            alt="A lovely memory"
+            class="photo"
+            loading="lazy"
+        >
+        <!-- New picture 4 -->
+        <img
+            src="Screenshot_20260912_193127_Roblox.jpeg"
+            alt="Another favourite Roblox memory"
+            class="photo"
+            loading="lazy"
+        >
+        <!-- New picture 5 -->
+        <img
+            src="image1_1.jpeg"
+            alt="One more beautiful memory"
+            class="photo"
+            loading="lazy"
+        >
+    </div>
+</section>
+<!-- Birthday letter: original -->
+<section id="letter">
+    <h2>A Little Letter for You 💌</h2>
+    <div class="letterBox">
+        <p id="typewriter">
+            Happy 17th Birthday, Jasmine ❤️
+            I made this website because you are someone very
+            special to me.
+            Every picture here reminds me of how amazing and
+            beautiful you are.
+            I hope your birthday is filled with happiness,
+            laughter and beautiful memories.
+            Thank you for being part of my life.
+            No matter where life takes us, I'll always smile
+            whenever I remember you.
+            You deserve the world.
+            Happy Birthday, my Princess.
+            I love you. ❤️
         </p>
-        <p>
-            No matter how many birthdays come and go,
-            I hope you always remember how special you are to me. 💖
-        </p>
-        <h2>Forever my Princess ❤️</h2>
-    </section>
+    </div>
+</section>
+<!-- Birthday gift: original -->
+<section class="giftSection">
+    <h2>A Little Birthday Surprise 🎁</h2>
+    <p>
+        Princess, there's one more little surprise waiting for you. 💗
+    </p>
+    <div
+        id="giftBox"
+        role="button"
+        tabindex="0"
+        aria-label="Open your birthday surprise"
+    >
+        🎁
+    </div>
+    <p>Tap the gift to open it, my Princess! 💕</p>
+</section>
+<!-- Hidden birthday surprise: original -->
+<section id="surprise">
+    <h1>🎉 Happy Birthday, Jasmine! 🎉</h1>
+    <p>
+        May your new year bring you endless happiness,
+        beautiful memories, success, and all the love
+        your heart can hold. ❤️
+    </p>
+    <p>
+        No matter how many birthdays come and go,
+        I hope you always remember how special you are to me. 💖
+    </p>
+    <h2>Forever my Princess ❤️</h2>
+</section>
 </main>
-<!-- Footer -->
+<!-- Footer: original -->
 <footer>
     <p>Made with all my love ❤️ — Chris</p>
     <p>Happy 17th Birthday, Princess 💗</p>
 </footer>
-<!-- Existing website functionality -->
+<!-- Existing website functionality: original -->
 <script src="script.js"></script>
-<!-- Keep both videos muted, inline and looping -->
+<!-- Keep both videos muted, inline and looping: original -->
 <script>
     document.addEventListener("DOMContentLoaded", function () {
         const videos = document.querySelectorAll(".gallery-video");
@@ -266,16 +447,62 @@
             video.setAttribute("playsinline", "");
             video.setAttribute("webkit-playsinline", "");
             video.setAttribute("loop", "");
-            // Request autoplay for both videos.
             const attemptPlay = function () {
                 video.muted = true;
                 video.play().catch(function (error) {
-                    console.log("Video autoplay may be restricted by the browser.", error);
+                    console.log(
+                        "Video autoplay may be restricted by the browser.",
+                        error
+                    );
                 });
             };
             attemptPlay();
         });
     });
+</script>
+<!-- Birthday countdown functionality -->
+<script>
+    (function () {
+        /*
+         * New Zealand is on NZDT (UTC+13) on November 4, 2026.
+         * Midnight in New Zealand = November 3, 2026 at 11:00 UTC.
+         */
+        const unlockTime = Date.UTC(2026, 10, 3, 11, 0, 0);
+        const countdown = document.getElementById("birthdayCountdown");
+        const daysElement = document.getElementById("cdDays");
+        const hoursElement = document.getElementById("cdHours");
+        const minutesElement = document.getElementById("cdMinutes");
+        const secondsElement = document.getElementById("cdSeconds");
+        let countdownInterval;
+        function unlockWebsite() {
+            countdown.classList.add("hidden");
+            if (countdownInterval) {
+                clearInterval(countdownInterval);
+            }
+        }
+        function updateCountdown() {
+            const remaining = unlockTime - Date.now();
+            if (remaining <= 0) {
+                unlockWebsite();
+                return;
+            }
+            const totalSeconds = Math.floor(remaining / 1000);
+            const days = Math.floor(totalSeconds / 86400);
+            const hours = Math.floor((totalSeconds % 86400) / 3600);
+            const minutes = Math.floor((totalSeconds % 3600) / 60);
+            const seconds = totalSeconds % 60;
+            daysElement.textContent = String(days).padStart(2, "0");
+            hoursElement.textContent = String(hours).padStart(2, "0");
+            minutesElement.textContent = String(minutes).padStart(2, "0");
+            secondsElement.textContent = String(seconds).padStart(2, "0");
+        }
+        if (Date.now() >= unlockTime) {
+            unlockWebsite();
+        } else {
+            updateCountdown();
+            countdownInterval = setInterval(updateCountdown, 1000);
+        }
+    })();
 </script>
 </body>
 </html>
