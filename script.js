@@ -228,3 +228,21 @@ document.addEventListener("DOMContentLoaded", function () {
     }, 900);
 
 });
+// Try to autoplay Jasmine's birthday video
+document.addEventListener("DOMContentLoaded", () => {
+    const video = document.querySelector(".gallery-video");
+
+    if (video) {
+        video.muted = true;
+        video.loop = true;
+        video.playsInline = true;
+
+        const startVideo = () => {
+            video.play().catch((error) => {
+                console.log("Autoplay was blocked by the browser:", error);
+            });
+        };
+
+        startVideo();
+    }
+});
