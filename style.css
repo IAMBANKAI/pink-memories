@@ -1,378 +1,591 @@
-*{
-margin:0;
-padding:0;
-box-sizing:border-box;
+/* =========================
+   GLOBAL STYLES
+========================= */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
 
-html{
-scroll-behavior:smooth;
+html {
+    scroll-behavior: smooth;
 }
 
-body{
-font-family:'Poppins',sans-serif;
-background:linear-gradient(135deg,#ffd6ea,#ffe9f4,#fff7fb);
-overflow-x:hidden;
-color:#444;
+body {
+    font-family: 'Poppins', sans-serif;
+    background: linear-gradient(135deg, #ffd6ea, #ffe9f4, #fff7fb);
+    overflow-x: hidden;
+    color: #444;
 }
 
-#loader{
-position:fixed;
-top:0;
-left:0;
-width:100%;
-height:100%;
-background:linear-gradient(135deg,#ff9fc9,#ffd8ec);
-display:flex;
-flex-direction:column;
-justify-content:center;
-align-items:center;
-z-index:99999;
-transition:1s;
+/* =========================
+   OPENING SCREEN
+========================= */
+
+#loader {
+    position: fixed;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, #ff9fc9, #ffd8ec);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 20px;
+    z-index: 99999;
+    transition: opacity 1s ease;
 }
 
-#loader h1{
-font-family:'Great Vibes',cursive;
-font-size:4rem;
-color:white;
-margin-bottom:15px;
-animation:fadeIn 2s infinite alternate;
+#loader h1 {
+    font-family: 'Great Vibes', cursive;
+    font-size: 4rem;
+    color: white;
+    margin-bottom: 15px;
+    animation: fadeIn 2s infinite alternate;
 }
 
-#loader p{
-color:white;
-font-size:18px;
-margin-bottom:30px;
+#loader p {
+    color: white;
+    font-size: 18px;
+    margin-bottom: 30px;
 }
 
-#enterBtn{
-padding:15px 40px;
-border:none;
-border-radius:40px;
-background:white;
-color:#ff4d94;
-font-size:18px;
-font-weight:bold;
-cursor:pointer;
-transition:.3s;
+#enterBtn {
+    padding: 15px 40px;
+    border: none;
+    border-radius: 40px;
+    background: white;
+    color: #ff4d94;
+    font-size: 18px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: transform 0.3s ease;
 }
 
-#enterBtn:hover{
-transform:scale(1.08);
+#enterBtn:hover {
+    transform: scale(1.08);
 }
 
-.hero{
-min-height:100vh;
-display:flex;
-flex-direction:column;
-justify-content:center;
-align-items:center;
-text-align:center;
-padding:40px;
+/* =========================
+   HERO SECTION
+========================= */
+
+.hero {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 40px 20px;
 }
 
-.hero h1{
-font-family:'Great Vibes',cursive;
-font-size:5rem;
-color:#ff4d94;
-text-shadow:0 0 15px rgba(255,77,148,.3);
+.hero h1 {
+    font-family: 'Great Vibes', cursive;
+    font-size: 5rem;
+    color: #ff4d94;
+    text-shadow: 0 0 15px rgba(255, 77, 148, 0.3);
+    animation: heartbeat 2s infinite;
 }
 
-.hero h2{
-font-size:2rem;
-margin:15px 0;
-color:#ff6ca8;
+.hero h2 {
+    font-size: 2rem;
+    margin: 15px 0;
+    color: #ff6ca8;
 }
 
-.hero p{
-max-width:750px;
-line-height:2;
-font-size:18px;
-margin:25px auto;
+.hero p {
+    max-width: 750px;
+    line-height: 2;
+    font-size: 18px;
+    margin: 25px auto;
 }
+
+/* =========================
+   BUTTONS
+========================= */
 
 #musicBtn,
-.scrollBtn{
-padding:15px 35px;
-margin:10px;
-border-radius:40px;
-background:#ff4d94;
-color:white;
-text-decoration:none;
-border:none;
-font-size:17px;
-cursor:pointer;
-transition:.3s;
+.scrollBtn {
+    display: inline-block;
+    padding: 15px 35px;
+    margin: 10px;
+    border-radius: 40px;
+    background: #ff4d94;
+    color: white;
+    text-decoration: none;
+    border: none;
+    font-size: 17px;
+    cursor: pointer;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 #musicBtn:hover,
-.scrollBtn:hover{
-transform:scale(1.08);
-box-shadow:0 0 20px pink;
-}
-section{
-padding:80px 25px;
+.scrollBtn:hover {
+    transform: scale(1.08);
+    box-shadow: 0 0 20px pink;
 }
 
-section h2{
-text-align:center;
-font-size:2.5rem;
-color:#ff4d94;
-margin-bottom:40px;
-font-family:'Great Vibes',cursive;
+/* =========================
+   GENERAL SECTIONS
+========================= */
+
+section {
+    padding: 80px 25px;
 }
 
-.gallery{
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(230px,1fr));
-gap:22px;
+section h2 {
+    text-align: center;
+    font-size: 2.5rem;
+    color: #ff4d94;
+    margin-bottom: 40px;
+    font-family: 'Great Vibes', cursive;
 }
 
-.photo{
-width:100%;
-border-radius:22px;
-cursor:pointer;
-transition:.5s;
-box-shadow:0 12px 30px rgba(255,105,180,.25);
+/* =========================
+   PHOTO GALLERY
+========================= */
+
+.gallery {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+    gap: 22px;
+    align-items: start;
 }
 
-.photo:hover{
-transform:scale(1.05) rotate(1deg);
-box-shadow:0 20px 45px rgba(255,105,180,.45);
+.photo {
+    display: block;
+    width: 100%;
+    border-radius: 22px;
+    cursor: pointer;
+    box-shadow: 0 12px 30px rgba(255, 105, 180, 0.25);
+    opacity: 0;
+    animation: photoFade 1s ease forwards;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-.letterBox{
-max-width:900px;
-margin:auto;
-background:rgba(255,255,255,.75);
-backdrop-filter:blur(12px);
-padding:35px;
-border-radius:25px;
-line-height:2;
-box-shadow:0 15px 40px rgba(0,0,0,.12);
-font-size:18px;
+.photo:hover {
+    transform: scale(1.03);
+    box-shadow: 0 20px 45px rgba(255, 105, 180, 0.45);
 }
 
-.giftSection{
-text-align:center;
+/* Staggered photo entrance */
+
+.gallery .photo:nth-child(1) {
+    animation-delay: 0.2s;
 }
 
-#giftBox{
-font-size:110px;
-cursor:pointer;
-transition:.4s;
-display:inline-block;
+.gallery .photo:nth-child(2) {
+    animation-delay: 0.4s;
 }
 
-#giftBox:hover{
-transform:scale(1.2) rotate(10deg);
+.gallery .photo:nth-child(3) {
+    animation-delay: 0.6s;
 }
 
-#surprise{
-display:none;
-text-align:center;
-padding:70px 20px;
-animation:fadeIn 1.5s;
+.gallery .photo:nth-child(4) {
+    animation-delay: 0.8s;
 }
 
-#surprise h1{
-font-family:'Great Vibes',cursive;
-font-size:4rem;
-color:#ff4d94;
-margin-bottom:20px;
+.gallery .photo:nth-child(5) {
+    animation-delay: 1s;
 }
 
-footer{
-margin-top:70px;
-padding:30px;
-background:#ff4d94;
-color:white;
-text-align:center;
-font-weight:bold;
+.gallery .photo:nth-child(6) {
+    animation-delay: 1.2s;
 }
 
-@keyframes fadeIn{
-from{
-opacity:0;
-transform:translateY(30px);
-}
-to{
-opacity:1;
-transform:translateY(0);
-}
-}
-.heart{
-position:fixed;
-bottom:-40px;
-font-size:24px;
-pointer-events:none;
-animation:floatHeart linear forwards;
-z-index:999;
-opacity:.8;
+.gallery .photo:nth-child(7) {
+    animation-delay: 1.4s;
 }
 
-@keyframes floatHeart{
-0%{
-transform:translateY(0) rotate(0deg);
-opacity:1;
-}
-100%{
-transform:translateY(-120vh) rotate(360deg);
-opacity:0;
-}
-}
-.petal{
-position:fixed;
-top:-40px;
-pointer-events:none;
-z-index:998;
-opacity:.9;
-animation:fallPetal linear;
-}
-@keyframes fallPetal{
-0%{
-transform:translateY(-50px) translateX(0) rotate(0deg);
-opacity:1;
-}
-100%{
-transform:translateY(110vh) translateX(100px) rotate(360deg);
-opacity:0;
-}
-}
-.sparkle{
-position:fixed;
-pointer-events:none;
-animation:sparkleAnim 2s linear forwards;
-z-index:997;
+.gallery .photo:nth-child(8) {
+    animation-delay: 1.6s;
 }
 
-@keyframes sparkleAnim{
-0%{
-opacity:0;
-transform:scale(.2);
-}
-20%{
-opacity:1;
-}
-100%{
-opacity:0;
-transform:scale(1.5);
-}
-}
-.giftOpen{
-animation:giftPop .8s ease;
+.gallery .photo:nth-child(9) {
+    animation-delay: 1.8s;
 }
 
-@keyframes giftPop{
-0%{
-transform:scale(1) rotate(0deg);
-}
-30%{
-transform:scale(1.4) rotate(-15deg);
-}
-60%{
-transform:scale(.9) rotate(15deg);
-}
-100%{
-transform:scale(1);
-}
+.gallery .photo:nth-child(10) {
+    animation-delay: 2s;
 }
 
-.hero h1{
-animation:heartbeat 2s infinite;
+.gallery .photo:nth-child(11) {
+    animation-delay: 2.2s;
 }
 
-@keyframes heartbeat{
-
-0%{
-transform:scale(1);
-text-shadow:0 0 10px #ff99cc;
+.gallery .photo:nth-child(12) {
+    animation-delay: 2.4s;
 }
 
-25%{
-transform:scale(1.05);
-text-shadow:0 0 25px #ff4d94;
+.gallery .photo:nth-child(13) {
+    animation-delay: 2.6s;
 }
 
-50%{
-transform:scale(1);
-text-shadow:0 0 40px #ff66b3;
+.gallery .photo:nth-child(14) {
+    animation-delay: 2.8s;
 }
 
-75%{
-transform:scale(1.05);
-text-shadow:0 0 25px #ff4d94;
+/* Video styling */
+
+.gallery-video {
+    display: block;
+    width: 100%;
+    aspect-ratio: 3 / 4;
+    object-fit: contain;
+    background: #000;
+    border-radius: 22px;
 }
 
-100%{
-transform:scale(1);
-text-shadow:0 0 10px #ff99cc;
+/* =========================
+   BIRTHDAY LETTER
+========================= */
+
+.letterBox {
+    max-width: 900px;
+    margin: auto;
+    background: rgba(255, 255, 255, 0.75);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    padding: 35px;
+    border-radius: 25px;
+    line-height: 2;
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.12);
+    font-size: 18px;
 }
 
-}
-.photo{
-opacity:0;
-transform:translateY(40px);
-animation:photoFade 1s forwards;
-}
+/* =========================
+   BIRTHDAY GIFT
+========================= */
 
-.photo:nth-child(1){animation-delay:.2s;}
-.photo:nth-child(2){animation-delay:.4s;}
-.photo:nth-child(3){animation-delay:.6s;}
-.photo:nth-child(4){animation-delay:.8s;}
-.photo:nth-child(5){animation-delay:1s;}
-.photo:nth-child(6){animation-delay:1.2s;}
-.photo:nth-child(7){animation-delay:1.4s;}
-.photo:nth-child(8){animation-delay:1.6s;}
-.photo:nth-child(9){animation-delay:1.8s;}
-.photo:nth-child(10){animation-delay:2s;}
-.photo:nth-child(11){animation-delay:2.2s;}
-.photo:nth-child(12){animation-delay:2.4s;}
-.photo:nth-child(13){animation-delay:2.6s;}
-.photo:nth-child(14){animation-delay:2.8s;}
-
-@keyframes photoFade{
-
-to{
-
-opacity:1;
-
-transform:translateY(0);
-
+.giftSection {
+    text-align: center;
 }
 
+#giftBox {
+    font-size: 110px;
+    cursor: pointer;
+    transition: transform 0.4s ease;
+    display: inline-block;
 }
 
-.confetti{
-position:fixed;
-top:-20px;
-pointer-events:none;
-z-index:9999;
-animation:confettiFall linear forwards;
+#giftBox:hover {
+    transform: scale(1.2) rotate(10deg);
 }
 
-@keyframes confettiFall{
-
-0%{
-transform:translateY(-20px) rotate(0deg);
-opacity:1;
+.giftOpen {
+    animation: giftPop 0.8s ease;
 }
 
-100%{
-transform:translateY(110vh) rotate(720deg);
-opacity:0;
+/* =========================
+   BIRTHDAY SURPRISE
+========================= */
+
+#surprise {
+    display: none;
+    text-align: center;
+    padding: 70px 20px;
+    animation: fadeIn 1.5s ease;
 }
 
+#surprise h1 {
+    font-family: 'Great Vibes', cursive;
+    font-size: 4rem;
+    color: #ff4d94;
+    margin-bottom: 20px;
 }
+
+/* =========================
+   FOOTER
+========================= */
+
+footer {
+    margin-top: 70px;
+    padding: 30px;
+    background: #ff4d94;
+    color: white;
+    text-align: center;
+    font-weight: bold;
+}
+
+/* =========================
+   FLOATING HEARTS
+========================= */
+
 #hearts,
-#petals{
-position:fixed;
-top:0;
-left:0;
-width:100%;
-height:100%;
-pointer-events:none;
-overflow:hidden;
-z-index:9998;
+#petals {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    overflow: hidden;
 }
 
+#hearts {
+    z-index: 9998;
+}
 
+#petals {
+    z-index: 9997;
+}
+
+.heart {
+    position: fixed;
+    bottom: -40px;
+    font-size: 24px;
+    pointer-events: none;
+    animation: floatHeart linear forwards;
+    z-index: 999;
+    opacity: 0.8;
+}
+
+@keyframes floatHeart {
+    0% {
+        transform: translateY(0) rotate(0deg);
+        opacity: 1;
+    }
+
+    100% {
+        transform: translateY(-120vh) rotate(360deg);
+        opacity: 0;
+    }
+}
+
+/* =========================
+   FALLING FLOWER PETALS
+========================= */
+
+.petal {
+    position: fixed;
+    top: -40px;
+    pointer-events: none;
+    z-index: 998;
+    opacity: 0.9;
+    animation: fallPetal linear forwards;
+}
+
+@keyframes fallPetal {
+    0% {
+        transform: translateY(-50px) translateX(0) rotate(0deg);
+        opacity: 1;
+    }
+
+    100% {
+        transform: translateY(110vh) translateX(100px) rotate(360deg);
+        opacity: 0;
+    }
+}
+
+/* =========================
+   MAGICAL SPARKLES
+========================= */
+
+.sparkle {
+    position: fixed;
+    pointer-events: none;
+    animation: sparkleAnim 2s linear forwards;
+    z-index: 997;
+}
+
+@keyframes sparkleAnim {
+    0% {
+        opacity: 0;
+        transform: scale(0.2);
+    }
+
+    20% {
+        opacity: 1;
+    }
+
+    100% {
+        opacity: 0;
+        transform: scale(1.5);
+    }
+}
+
+/* =========================
+   CONFETTI
+========================= */
+
+.confetti {
+    position: fixed;
+    top: -20px;
+    pointer-events: none;
+    z-index: 9999;
+    animation: confettiFall linear forwards;
+}
+
+@keyframes confettiFall {
+    0% {
+        transform: translateY(-20px) rotate(0deg);
+        opacity: 1;
+    }
+
+    100% {
+        transform: translateY(110vh) rotate(720deg);
+        opacity: 0;
+    }
+}
+
+/* =========================
+   ANIMATIONS
+========================= */
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes heartbeat {
+    0%,
+    50%,
+    100% {
+        transform: scale(1);
+    }
+
+    25%,
+    75% {
+        transform: scale(1.05);
+    }
+}
+
+@keyframes photoFade {
+    from {
+        opacity: 0;
+        transform: translateY(25px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes giftPop {
+    0% {
+        transform: scale(1) rotate(0deg);
+    }
+
+    30% {
+        transform: scale(1.4) rotate(-15deg);
+    }
+
+    60% {
+        transform: scale(0.9) rotate(15deg);
+    }
+
+    100% {
+        transform: scale(1);
+    }
+}
+
+/* =========================
+   MOBILE RESPONSIVENESS
+========================= */
+
+@media (max-width: 600px) {
+
+    .hero {
+        padding: 25px 18px;
+    }
+
+    .hero h1 {
+        font-size: 3rem;
+    }
+
+    .hero h2 {
+        font-size: 1.7rem;
+    }
+
+    .hero p {
+        font-size: 16px;
+        line-height: 1.8;
+    }
+
+    section {
+        padding: 55px 16px;
+    }
+
+    section h2 {
+        font-size: 2.2rem;
+    }
+
+    .gallery {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 12px;
+    }
+
+    .photo {
+        border-radius: 15px;
+    }
+
+    .gallery-video {
+        aspect-ratio: 3 / 4;
+    }
+
+    .letterBox {
+        padding: 22px;
+        font-size: 16px;
+        overflow-wrap: anywhere;
+    }
+
+    #loader h1 {
+        font-size: 3rem;
+        text-align: center;
+    }
+
+    #loader p {
+        font-size: 16px;
+    }
+
+    #surprise h1 {
+        font-size: 2.8rem;
+    }
+
+    #giftBox {
+        font-size: 85px;
+    }
+
+    #musicBtn,
+    .scrollBtn {
+        padding: 13px 24px;
+        font-size: 15px;
+    }
+
+    footer {
+        padding: 25px 15px;
+        overflow-wrap: anywhere;
+    }
+}
+
+/* =========================
+   REDUCED MOTION ACCESSIBILITY
+========================= */
+
+@media (prefers-reduced-motion: reduce) {
+
+    html {
+        scroll-behavior: auto;
+    }
+
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        scroll-behavior: auto !important;
+    }
+}
