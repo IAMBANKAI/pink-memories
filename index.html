@@ -1,209 +1,266 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <title>The Jasmine Files ❤️</title>
 
-<title>Project Pink Memories ❤️</title>
+    <meta name="theme-color" content="#ffd6ea">
+    <meta name="description" content="A birthday surprise made with love for Jasmine ❤️">
 
-<link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="style.css">
 
-<link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Poppins:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&family=Great+Vibes&display=swap" rel="stylesheet">
 </head>
 
 <body>
 
-<div id="loader">
+    <!-- Opening screen -->
+    <div id="loader">
+        <h1>The Jasmine Files ❤️</h1>
+        <p>Made with all my love, just for Jasmine 💗</p>
+
+        <button id="enterBtn">
+            🎁 Open My Gift
+        </button>
+    </div>
+
+    <!-- Floating decorations -->
+    <div id="hearts" aria-hidden="true"></div>
+    <div id="petals" aria-hidden="true"></div>
+
+    <main id="mainContent">
+
+        <!-- Birthday introduction -->
+        <section class="hero">
+
+            <h1>Happy 17th Birthday</h1>
+
+            <h2>Jasmine ❤️</h2>
+
+            <p>
+                To my beautiful Princess, my favourite person,
+                and the girl who makes my world a little brighter.
+                Today is all about celebrating YOU. 💖
+            </p>
+
+            <button id="musicBtn" type="button">
+                🎵 Play Our Song
+            </button>
+
+            <audio id="birthdayMusic" preload="none">
+                <source src="A_Thousand_Years-528635-mobiles24.mp3" type="audio/mpeg">
+                Your browser does not support audio playback.
+            </audio>
+
+            <a href="#gallery" class="scrollBtn">
+                Our Little Memories 💕
+            </a>
+
+        </section>
+
+        <!-- Photo and video gallery -->
+        <section id="gallery">
+
+            <h2>Our Little Memories 📸</h2>
+
+            <div class="gallery">
+
+                <img
+                    src="Screenshot_20261005_102603_Discord.jpeg"
+                    alt="A special memory of Jasmine"
+                    class="photo"
+                    loading="lazy"
+                >
+
+                <img
+                    src="44526fc8-3214-4282-b3d8-12df1c8f22c0.jpeg"
+                    alt="A beautiful memory"
+                    class="photo"
+                    loading="lazy"
+                >
+
+                <video
+                    controls
+                    class="photo gallery-video"
+                    preload="metadata"
+                    playsinline
+                >
+                    <source src="2026-10-06-001649502.mp4" type="video/mp4">
+                    Your browser does not support video playback.
+                </video>
+
+                <img
+                    src="IMG_4117.jpeg"
+                    alt="A favourite memory"
+                    class="photo"
+                    loading="lazy"
+                >
+
+                <img
+                    src="IMG_4161.jpeg"
+                    alt="A special moment"
+                    class="photo"
+                    loading="lazy"
+                >
+
+                <img
+                    src="20250531_143235.jpeg"
+                    alt="A lovely memory"
+                    class="photo"
+                    loading="lazy"
+                >
+
+                <img
+                    src="53886e0f-5173-4c8d-b6db-6c52d7b56045.jpeg"
+                    alt="A cherished memory"
+                    class="photo"
+                    loading="lazy"
+                >
 
-<h1>Project Pink Memories</h1>
+                <img
+                    src="IMG_4338.jpeg"
+                    alt="A beautiful moment"
+                    class="photo"
+                    loading="lazy"
+                >
 
-<p>Made with ❤️ for Laura</p>
+                <img
+                    src="fb9dbb7d-e940-4835-8f8d-f29b51d2769c.jpeg"
+                    alt="A special photo"
+                    class="photo"
+                    loading="lazy"
+                >
 
-<button id="enterBtn">
-🎁 Open My Gift
-</button>
+                <img
+                    src="IMG_4119.jpeg"
+                    alt="Another favourite memory"
+                    class="photo"
+                    loading="lazy"
+                >
 
-</div>
+                <img
+                    src="IMG_4376.jpeg"
+                    alt="A happy memory"
+                    class="photo"
+                    loading="lazy"
+                >
 
-<div id="petals"></div>
+                <img
+                    src="IMG_4375.jpeg"
+                    alt="A lovely moment"
+                    class="photo"
+                    loading="lazy"
+                >
 
-<div id="hearts"></div>
+                <img
+                    src="16ca500d-06b5-4bab-a3a6-8e76eb9be02c.jpeg"
+                    alt="A memory worth keeping"
+                    class="photo"
+                    loading="lazy"
+                >
 
-<main id="mainContent">
+                <img
+                    src="8eb888fe-aa6e-4fc4-9c87-9affaa1edcca.jpeg"
+                    alt="One more special memory"
+                    class="photo"
+                    loading="lazy"
+                >
 
-<section class="hero">
+            </div>
 
-<h1>Happy 17th Birthday</h1>
+        </section>
 
-<h2>Laura ❤️</h2>
+        <!-- Birthday letter -->
+        <section id="letter">
 
-<p>
+            <h2>A Little Letter for You 💌</h2>
 
-Today is all about you.
+            <div class="letterBox">
 
-I wanted to give you something that would always stay with you.
+                <p id="typewriter">
+                    Happy 17th Birthday, Jasmine ❤️
 
-So I made this little world filled with our memories.
+                    I made this website because you are someone very
+                    special to me.
 
-Happy Birthday my Princess.
+                    Every picture here reminds me of how amazing and
+                    beautiful you are.
 
-I hope you smile while exploring it.
+                    I hope your birthday is filled with happiness,
+                    laughter and beautiful memories.
 
-I love you.
+                    Thank you for being part of my life.
 
-</p>
+                    No matter where life takes us, I'll always smile
+                    whenever I remember you.
 
-<button id="musicBtn">
+                    You deserve the world.
 
-🎵 Play Our Song
+                    Happy Birthday, my Princess.
 
-</button>
+                    I love you. ❤️
+                </p>
 
-  <audio id="birthdayMusic">
-    <source src="A_Thousand_Years-528635-mobiles24.mp3" type="audio/mpeg">
-    Your browser does not support the audio element.
-</audio>
-  
-  
+            </div>
 
-<a href="#gallery" class="scrollBtn">
+        </section>
 
-Scroll Down 💕
+        <!-- Birthday gift -->
+        <section class="giftSection">
 
-</a>
+            <h2>A Little Birthday Surprise 🎁</h2>
 
-</section>
+            <p>
+                Princess, there's one more little surprise waiting for you. 💗
+            </p>
 
-<section id="gallery">
+            <div
+                id="giftBox"
+                role="button"
+                tabindex="0"
+                aria-label="Open your birthday surprise"
+            >
+                🎁
+            </div>
 
-<h2>
+            <p>Tap the gift to open it, my Princess! 💕</p>
 
-📸 Our Memories
+        </section>
 
-</h2>
+        <!-- Hidden birthday surprise -->
+        <section id="surprise">
 
-<div class="gallery">
-<img src="173DEDD0-504C-4D30-ACB5-CA9232592421.png" class="photo">
+            <h1>🎉 Happy Birthday, Jasmine! 🎉</h1>
 
-<img src="3C3E1D87-8983-4DB9-B23B-410465B47597.png" class="photo">
+            <p>
+                May your new year bring you endless happiness,
+                beautiful memories, success, and all the love
+                your heart can hold. ❤️
+            </p>
 
-<img src="65DCF480-92CE-40CA-9BC6-20897056629D.png" class="photo">
+            <p>
+                No matter how many birthdays come and go,
+                I hope you always remember how special you are to me. 💖
+            </p>
 
-<img src="80185995083__E4F4C861-E597-4B48-8A6A-C908F6601EF6.jpeg" class="photo">
+            <h2>Forever my Princess ❤️</h2>
 
-<img src="80194527633__CAC0A013-1D9B-443E-86E9-CFB4C9A92676.jpeg" class="photo">
+        </section>
 
-<img src="80600719575__FC0D4D85-61D8-490B-A059-7FAA10C664AC.jpeg" class="photo">
+    </main>
 
-<img src="87BD4F8B-9826-43DA-9382-837DFAB03F8D.png" class="photo">
+    <!-- Footer -->
+    <footer>
+        <p>Made with all my love ❤️ — Chris</p>
+        <p>Happy 17th Birthday, Princess 💗</p>
+    </footer>
 
-<img src="C23D4515-776D-43A7-BCCE-011A4AF6FEC4.png" class="photo">
-
-<img src="C9A2F117-0586-43D0-8E8B-1A76D54C75DD.png" class="photo">
-
-<img src="DB0E671F-46B8-4689-8D64-9816FBABF533.png" class="photo">
-
-<img src="F0627D3E-FE83-4602-8CD6-9FE947F33D2B.jpeg" class="photo">
-
-<img src="IMG_3227.jpeg" class="photo">
-
-<img src="IMG_3544.jpeg" class="photo">
-
-<img src="SPOILER_IMG_20260428_181616.jpeg" class="photo">
-</div>
-
-</section>
-
-<section class="letter">
-
-<h2>💌 A Letter For You 💌</h2>
-
-<div class="letterBox">
-
-<p id="typewriter">
-
-Happy 17th Birthday, Laura ❤️
-
-I made this website because you are someone very special to me.
-
-Every picture here reminds me of how amazing you are.
-
-I hope your birthday is filled with happiness, laughter and beautiful memories.
-
-Thank you for being part of my life.
-
-No matter where life takes us, I'll always smile whenever I remember you.
-
-You deserve the world.
-
-Happy Birthday, my Princess.
-
-I love you. ❤️
-
-</p>
-
-</div>
-
-</section>
-
-<section class="giftSection">
-
-<h2>A Little Surprise 🎁</h2>
-
-<div id="giftBox">
-
-🎁
-
-</div>
-
-<p>
-
-Tap the gift...
-
-</p>
-
-</section>
-
-<div id="surprise">
-
-<h1>
-
-🎉 Happy Birthday Laura 🎉
-
-</h1>
-
-<p>
-
-May your dreams come true.
-
-May your smile never fade.
-
-Thank you for being you.
-
-❤️
-
-</p>
-
-</div>
-
-<footer>
-
-Made with all my love ❤️ — Chris
-<p style="margin-top:20px;font-size:16px;opacity:.8;">
-🌸 "Distance may separate us, but today my heart is celebrating with you."
-</p>
-
-<p style="margin-top:10px;font-family:'Great Vibes',cursive;font-size:32px;color:#fff;">
-Happy 17th Birthday, Princess ❤️
-</p>
-</footer>
-
-<script src="script.js"></script>
-
-</main>
+    <script src="script.js"></script>
 
 </body>
-
 </html>
